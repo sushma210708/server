@@ -272,21 +272,14 @@ setInterval(async () => {
         // 4. Send FCM Push Notification if tokens exist
         if (setting.fcmTokens && setting.fcmTokens.length > 0 && admin.apps.length > 0) {
            const message = {
-  notification: {
+  data: {
+    action: 'trigger_alert',
     title: '⚠️ KVA Limit Exceeded!',
     body: `Live kVA (${liveKva.toFixed(2)}) is over limit (${limit.toFixed(1)}).`
   },
 
-  data: {
-    action: 'trigger_alert'
-  },
-
   android: {
     priority: 'high',
-    notification: {
-      channelId: 'ricemill_alerts',
-      sound: 'beep'
-    }
   },
 
   tokens: setting.fcmTokens
