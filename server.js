@@ -9,7 +9,7 @@ const { Server: SocketIOServer } = require('socket.io');
 const app = express();
 app.use(cors());
 app.use(express.json());
-const BIND_IP = '13.233.76.8';
+const BIND_IP = '0.0.0.0';
 const PORT = 5555;
 
 // MongoDB connection
